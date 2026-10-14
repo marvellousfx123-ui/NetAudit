@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cybersecurity Course | COREWEB</title>
+<meta name="description" content="Learn cybersecurity one topic at a time. Choose a topic and get your course folder on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F7FA; --card:#FFFFFF; --ink:#0F1E3D; --text:#1D2A44; --muted:#5B6980; --line:#DCE3EE;
+  --blue:#2563EB; --blue-d:#1D4ED8; --sky:#38BDF8; --green:#16A34A; --amber:#F59E0B;
+  --head:'Plus Jakarta Sans',system-ui,sans-serif; --body:'DM Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--head);line-height:1.1;letter-spacing:-.02em;color:var(--ink)}
+
+/* top */
+.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand img{height:40px;width:auto;display:block}
+.brand svg{width:40px;height:40px;flex:none}
+.brand .bn{font-family:var(--head);font-weight:800;font-size:21px;line-height:1;color:var(--ink)}
+.brand .bs{display:block;font-weight:500;font-size:12.5px;color:var(--muted);margin-top:3px}
+.wa{font-size:15px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);padding:8px 16px;border-radius:999px}
+.wa:hover{background:var(--ink);color:#fff}
+
+/* hero: navy panel */
+.hero{display:grid;gap:30px;align-items:center;background:linear-gradient(135deg,#0F1E3D 0%,#173A6E 100%);border-radius:24px;padding:34px 24px;color:#fff}
+@media(min-width:860px){.hero{grid-template-columns:1.1fr .9fr;padding:58px 48px}}
+.hero h1{font-size:clamp(34px,6vw,54px);font-weight:800;color:#fff}
+.hero p.lead{margin-top:16px;font-size:18px;color:#C3D0E8;max-width:30em}
+.btn{display:inline-block;font:600 16.5px var(--body);background:var(--blue);color:#fff;border:0;border-radius:10px;padding:13px 22px;cursor:pointer;text-decoration:none;text-align:center;transition:background .15s}
+.btn:hover{background:var(--blue-d)}
+.hero .btn{background:#fff;color:var(--ink)}
+.hero .btn:hover{background:#E6EEFB}
+.hero .btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45)}
+.hero .btn.ghost:hover{background:rgba(255,255,255,.12)}
+.hero .actions{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.inside{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:22px}
+.inside h3{color:#fff;font-size:20px;margin-bottom:14px}
+.inside ul{list-style:none;padding:0;display:grid;gap:12px}
+.inside li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+.inside li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;background:var(--sky);color:#08203F;font-weight:800;font-size:14px;display:grid;place-items:center;margin-top:1px}
+.inside li span{display:block;color:#B6C5E0;font-size:14.5px}
+.inside b{font-weight:600;color:#fff}
+
+/* trust */
+.trust{display:grid;gap:12px;list-style:none;padding:26px 0 4px}
+@media(min-width:760px){.trust{grid-template-columns:repeat(4,1fr)}}
+.trust li{font-family:var(--head);font-weight:700;font-size:16px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.trust span{display:block;font-family:var(--body);font-weight:400;color:var(--muted);font-size:14px;margin-top:3px}
+
+section{padding:46px 0}
+section h2{font-size:clamp(28px,4.5vw,38px);font-weight:800}
+section .sub{color:var(--muted);margin-top:10px;max-width:36em}
+
+/* topics */
+.list{margin-top:26px;display:grid;gap:12px}
+.row{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:grid;gap:14px;align-items:center;transition:box-shadow .15s,border-color .15s}
+.row:hover{border-color:#B9C7DE;box-shadow:0 8px 24px -12px rgba(15,30,61,.25)}
+@media(min-width:700px){.row{grid-template-columns:1fr auto;gap:24px}}
+.row h3{font-size:20px;font-weight:700}
+.row p{color:var(--muted);font-size:15.5px;margin-top:4px}
+.row .meta{font-size:14px;color:var(--blue);font-weight:600;margin-top:8px}
+.row .buy{display:flex;align-items:center;gap:16px}
+.price{font-family:var(--head);font-weight:800;font-size:23px;white-space:nowrap;color:var(--ink)}
+.row.bundle{border:2px solid var(--ink);background:linear-gradient(100deg,#FFF6DD,#fff 60%)}
+.badge{display:inline-block;background:var(--amber);color:#2A1A00;font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.row.owned{border-color:var(--green)}
+.row.owned .btn{background:var(--green)}
+
+/* steps */
+.steps{margin-top:24px;padding:0;list-style:none;display:grid;gap:14px;counter-reset:s}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;display:grid;place-items:center;margin-bottom:10px;font-family:var(--head)}
+.steps b{font-family:var(--head);font-size:19px;display:block;margin-bottom:4px;color:var(--ink)}
+.steps span{color:var(--muted);font-size:15.5px}
+
+/* about */
+.about{display:grid;gap:26px;background:var(--ink);color:#fff;border-radius:22px;padding:30px 26px}
+@media(min-width:800px){.about{grid-template-columns:1.2fr .8fr;padding:40px}}
+.about h2{color:#fff}
+.about p{color:#C3D0E8;margin-top:12px}
+.about .svc{list-style:none;padding:0;display:grid;gap:10px;align-content:start}
+.about .svc li{background:rgba(255,255,255,.08);border-radius:12px;padding:12px 14px;font-size:15.5px;color:#C3D0E8}
+.about .svc b{display:block;font-family:var(--head);font-size:17px;color:#fff}
+.about .btn{background:#25D366;color:#06260F;margin-top:20px}
+.about .btn:hover{background:#1FB958}
+.fab{position:fixed;right:16px;bottom:16px;z-index:20;display:flex;align-items:center;gap:8px;background:#25D366;color:#06260F;font-weight:600;font-size:15px;text-decoration:none;padding:12px 16px;border-radius:999px;box-shadow:0 10px 26px rgba(6,38,15,.35)}
+.fab:hover{background:#1FB958}
+.fab svg{width:22px;height:22px}
+
+footer{padding:34px 0 50px;color:var(--muted);font-size:15px;border-top:1px solid var(--line);margin-top:26px}
+footer .cols{display:grid;gap:22px}
+@media(min-width:760px){footer .cols{grid-template-columns:1.3fr 1fr 1fr}}
+footer b{color:var(--ink);display:block;margin-bottom:6px;font-family:var(--head)}
+footer a{text-decoration:none;display:block;padding:2px 0}
+footer a:hover{color:var(--blue)}
+footer .copy{margin-top:22px;font-size:13.5px}
+
+/* checkout dialog (Paystack mode only) */
+dialog{border:0;border-radius:18px;padding:0;max-width:440px;width:calc(100% - 28px);box-shadow:0 30px 80px rgba(15,30,61,.45);color:var(--text)}
+dialog::backdrop{background:rgba(15,30,61,.6)}
+.dlg{padding:24px}
+.dlg h3{font-size:24px}
+.dlg .what{color:var(--muted);margin:6px 0 18px;font-size:15.5px}
+label{display:block;font-weight:600;font-size:14.5px;margin:12px 0 5px}
+input{width:100%;font:17px var(--body);padding:12px 13px;border:1.5px solid var(--line);border-radius:9px;background:#fff;color:var(--ink)}
+input:focus{outline:3px solid var(--blue);border-color:var(--blue)}
+.dlg .btn{width:100%;margin-top:20px}
+.close{background:none;border:0;font:600 15px var(--body);color:var(--muted);cursor:pointer;margin-top:12px;width:100%;padding:8px}
+.err{color:#B3261E;font-size:15px;margin-top:12px;min-height:1px}
+.access{display:grid;gap:10px;margin-top:16px}
+.access a{display:block;background:var(--green);color:#fff;text-decoration:none;font-weight:600;padding:13px 16px;border-radius:10px}
+.demo{background:#FFF3C4;border-radius:8px;padding:8px 12px;font-size:14px;margin-bottom:14px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <a class="brand" href="#" id="brand" aria-label="COREWEB home"></a>
+    <a class="wa" id="waTop" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a>
+  </div>
+
+  <header class="hero">
+    <div>
+      <h1>Learn cybersecurity. Pay only for the topic you need.</h1>
+      <p class="lead">Choose the topic you need. Tap Unlock, confirm on WhatsApp, and get your lesson folder as soon as payment is confirmed.</p>
+      <div class="actions">
+        <a class="btn" href="#topics">See topics and prices</a>
+        <a class="btn ghost" href="#how">How it works</a>
+      </div>
+    </div>
+
+    <div class="inside">
+      <h3>Inside every topic</h3>
+      <ul>
+        <li><div><b>Lesson videos</b><span>Clear, step by step</span></div></li>
+        <li><div><b>Lab guide (PDF)</b><span>Follow along on your own computer</span></div></li>
+        <li><div><b>Practice tasks</b><span>Test what you learned</span></div></li>
+        <li><div><b>Support on WhatsApp</b><span>Ask when you get stuck</span></div></li>
+      </ul>
+    </div>
+  </header>
+
+  <ul class="trust">
+    <li>Pay once<span>No subscription, no hidden fees</span></li>
+    <li>Fast access<span>Your folder is sent once payment is confirmed</span></li>
+    <li>Simple payment<span>Bank transfer, details shared on WhatsApp</span></li>
+    <li>Real support<span>Direct help on WhatsApp</span></li>
+  </ul>
+
+  <section id="topics">
+    <h2>Choose your topic</h2>
+    <p class="sub">Each topic is its own folder. Buy one, or take the full bundle and save.</p>
+    <div class="list" id="list"></div>
+  </section>
+
+  <section id="how">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><b>Pick a topic</b><span>Tap Unlock on the topic you want. WhatsApp opens with your request ready to send.</span></li>
+      <li><b>Pay by transfer</b><span>We reply with our account details. Send the payment and share your receipt.</span></li>
+      <li><b>Get your folder</b><span>As soon as we confirm payment, we send your private access link on WhatsApp.</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="about">
+      <div>
+        <img id="aboutPhoto" alt="Marvellous" hidden style="width:96px;height:96px;border-radius:50%;object-fit:cover;margin-bottom:14px"><h2>Hi, I'm Marvellous</h2>
+        <p>I'm the founder of COREWEB, a digital agency in Lagos. I build websites and manage TikTok content for businesses. I teach cybersecurity the same way I work: practical, step by step, with real tools and no filler.</p>
+        <p>Not sure where to start? Message me your goal on WhatsApp and I'll tell you which topic to take first.</p>
+        <a class="btn" id="waAbout" href="#" target="_blank" rel="noopener">Message me on WhatsApp</a>
+      </div>
+      <ul class="svc">
+        <li><b>Web design</b>Business websites that convert</li>
+        <li><b>TikTok content management</b>Consistent posting and growth</li>
+        <li><b>Cybersecurity training</b>Hands-on, step-by-step courses</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="cols">
+      <div><b>COREWEB (Marvellous Tech Hub)</b>Web design, TikTok content management and cybersecurity training in Nigeria.<br>Lagos, Nigeria</div>
+      <div><b>Contact</b><a id="waFoot" href="#" target="_blank" rel="noopener">WhatsApp: +234 706 846 3321</a><a id="mailFoot" href="#">marvellous6978@gmail.com</a></div>
+      <div><b>Course</b><a href="#topics">Topics and prices</a><a href="#how">How it works</a></div>
+    </div>
+    <div class="copy">&copy; <span id="yr"></span> COREWEB. All rights reserved.</div>
+  </footer>
+</div>
+
+<a class="fab" id="waFab" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.400-1.300-3.300-2.900-.2-.3.200-.3.700-1.100.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.7.700-1 1.500-1 2.400.1 1 .5 1.900 1.100 2.700 1.200 1.700 2.600 2.900 4.500 3.600 1.800.6 2.300.5 3.100.3.700-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.1-1.200l-.5-.3z"/></svg>
+  Chat with us
+</a>
+
+<!-- Checkout dialog -->
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <div class="dlg" id="dlgBody"></div>
+</dialog>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+/* ================= EDIT THIS SECTION ================= */
+const CONFIG = {
+  CHECKOUT_MODE: "whatsapp",   // "whatsapp": Unlock opens your WhatsApp. "paystack": automatic online payment
+  BRAND: { name: "COREWEB", sub: "Marvellous Tech Hub",
+           LOGO_URL: "", PHOTO_URL: "" },   // paste your logo file name here, e.g. "logo.png" (upload it next to index.html)
+  PAYSTACK_PUBLIC_KEY: "pk_test_REPLACE_ME",        // from Paystack dashboard (public key only)
+  BACKEND_URL: "http://localhost:3000",             // your deployed server, no trailing slash
+  WHATSAPP: "2347068463321",                        // international format, no +
+  EMAIL: "marvellous6978@gmail.com",
+  BUNDLE: { id: "all", title: "Full bundle: every topic", price: 75000,
+            blurb: "All topics, all future updates to them, and priority help on WhatsApp." },
+  TOPICS: [
+    { id: "foundations", title: "Cybersecurity foundations", level: "Beginner",     lessons: 8,  price: 15000,
+      blurb: "How attacks work, the CIA triad, threats, and the habits that keep you safe." },
+    { id: "networking",  title: "Networking for security",   level: "Beginner",     lessons: 10, price: 18000,
+      blurb: "IP, ports, DNS, protocols and how to read traffic." },
+    { id: "linux",       title: "Linux and Kali setup",      level: "Beginner",     lessons: 7,  price: 15000,
+      blurb: "Build your lab and get fast on the command line." },
+    { id: "recon",       title: "Reconnaissance and scanning", level: "Intermediate", lessons: 9, price: 22000,
+      blurb: "Find what is exposed on a network you are allowed to test." },
+    { id: "webapp",      title: "Web application security",  level: "Intermediate", lessons: 12, price: 25000,
+      blurb: "Common web flaws, how they are found, and how to fix them." }
+  ]
+};
+/* ===================================================== */
+
+const naira = n => "₦" + n.toLocaleString("en-NG");
+const $ = id => document.getElementById(id);
+const DEMO = CONFIG.PAYSTACK_PUBLIC_KEY.includes("REPLACE_ME");
+const STORE = "mth_refs";
+const getRefs = () => { try { return JSON.parse(localStorage.getItem(STORE)) || []; } catch { return []; } };
+const saveRef = r => { try { localStorage.setItem(STORE, JSON.stringify([...new Set([...getRefs(), r])])); } catch {} };
+
+/* contact links */
+const wa = (msg="Hi, I have a question about the cybersecurity course") =>
+  `https://wa.me/${CONFIG.WHATSAPP}?text=${encodeURIComponent(msg)}`;
+["waTop","waFoot","waAbout","waFab"].forEach(i => $(i).href = wa());
+$("mailFoot").href = "mailto:" + CONFIG.EMAIL;
+$("yr").textContent = new Date().getFullYear();
+if (CONFIG.BRAND.PHOTO_URL) { $("aboutPhoto").src = CONFIG.BRAND.PHOTO_URL; $("aboutPhoto").hidden = false; }
+
+/* logo: uses your image if LOGO_URL is set, otherwise a built-in COREWEB mark */
+$("brand").innerHTML = CONFIG.BRAND.LOGO_URL
+  ? `<img src="${CONFIG.BRAND.LOGO_URL}" alt="${CONFIG.BRAND.name}">`
+  : `<svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#0F1E3D"/><path d="M26 13.500A9 9 0 1 0 26 26.500" fill="none" stroke="#fff" stroke-width="3.600" stroke-linecap="round"/><circle cx="27" cy="20" r="3" fill="#38BDF8"/></svg>
+     <span><span class="bn">${CONFIG.BRAND.name}</span><span class="bs">${CONFIG.BRAND.sub}</span></span>`;
+
+/* render topics */
+const owned = {};  // id -> links[]
+function render() {
+  const all = [{ ...CONFIG.BUNDLE, bundle: true }, ...CONFIG.TOPICS];
+  $("list").innerHTML = all.map(t => {
+    const has = owned[t.id] || owned.all;
+    return `<div class="row ${t.bundle ? "bundle" : ""} ${has ? "owned" : ""}">
+      <div>
+        ${t.bundle ? '<span class="badge">Best value</span>' : ""}
+        <h3>${t.title}</h3>
+        <p>${t.blurb}</p>
+        ${t.bundle ? "" : `<div class="meta">${t.level} &middot; ${t.lessons} lessons</div>`}
+      </div>
+      <div class="buy">
+        ${has ? "" : `<span class="price">${naira(t.price)}</span>`}
+        ${CONFIG.CHECKOUT_MODE === "whatsapp"
+          ? `<a class="btn" href="${wa(`Hi Marvellous, I want to unlock "${t.title}" (${naira(t.price)}). Please send me the payment details.`)}" target="_blank" rel="noopener">Unlock</a>`
+          : `<button class="btn" data-id="${t.id}">${has ? "Open folder" : "Unlock"}</button>`}
+      </div>
+    </div>`;
+  }).join("");
+  document.querySelectorAll("#list button.btn").forEach(b => b.onclick = () => onPick(b.dataset.id));
+}
+
+function find(id){ return id === "all" ? CONFIG.BUNDLE : CONFIG.TOPICS.find(t => t.id === id); }
+
+function onPick(id){
+  if (CONFIG.CHECKOUT_MODE === "whatsapp") {
+    const t = find(id);
+    const msg = `Hi Marvellous, I want to unlock "${t.title}" (${naira(t.price)}). Please send me the payment details.`;
+    window.open(wa(msg), "_blank", "noopener");
+    return;
+  }
+  if (owned[id] || owned.all) return showAccess(id in owned ? id : "all");
+  openCheckout(id);
+}
+
+/* checkout */
+function openCheckout(id){
+  const t = find(id);
+  $("dlgBody").innerHTML = `
+    <h3 id="dlgTitle">${t.title}</h3>
+    <p class="what">${naira(t.price)}. Your folder opens right after payment.</p>
+    ${DEMO ? '<div class="demo">Preview mode: no real payment. Add your Paystack key to go live.</div>' : ""}
+    <label for="fn">Full name</label><input id="fn" autocomplete="name" required>
+    <label for="em">Email (your access link is sent here)</label><input id="em" type="email" autocomplete="email" required>
+    <label for="ph">WhatsApp number</label><input id="ph" type="tel" autocomplete="tel" placeholder="0706 000 0000">
+    <div class="err" id="err" role="alert"></div>
+    <button class="btn" id="pay">Pay ${naira(t.price)}</button>
+    <button class="close" id="cancel">Cancel</button>`;
+  $("dlg").showModal();
+  $("cancel").onclick = () => $("dlg").close();
+  $("pay").onclick = () => startPayment(id);
+}
+
+function startPayment(id){
+  const t = find(id), name = $("fn").value.trim(), email = $("em").value.trim(), phone = $("ph").value.trim();
+  if (!name || !/^\S+@\S+\.\S+$/.test(email)) { $("err").textContent = "Enter your name and a valid email."; return; }
+  const ref = "MTH-" + Date.now() + "-" + Math.floor(Math.random()*1e5);
+
+  if (DEMO) { return showAccess(id, [{ title: t.title, url: "#demo-folder" }], true); }
+
+  const handler = PaystackPop.setup({
+    key: CONFIG.PAYSTACK_PUBLIC_KEY,
+    email, amount: t.price * 100, currency: "NGN", ref,
+    metadata: { topic_id: id, name, phone },
+    callback: function(res){ confirmPayment(res.reference); },
+    onClose: function(){ $("err").textContent = "Payment window closed. Press Pay to try again."; }
+  });
+  handler.openIframe();
+}
+
+/* ask YOUR server to verify; it returns links only if Paystack confirms the payment */
+async function confirmPayment(reference){
+  $("dlgBody").innerHTML = `<h3>Confirming payment...</h3><p class="what">Please wait. Do not close this page.</p>`;
+  try {
+    const r = await fetch(`${CONFIG.BACKEND_URL}/api/verify?reference=${encodeURIComponent(reference)}`);
+    const d = await r.json();
+    if (!r.ok || !d.ok) throw new Error(d.error || "Could not confirm payment");
+    saveRef(reference);
+    owned[d.topic_id] = d.links;
+    render();
+    showAccess(d.topic_id, d.links, false, reference);
+  } catch (e) {
+    $("dlgBody").innerHTML = `<h3>We could not confirm it yet</h3>
+      <p class="what">If money left your account, do not pay again. Send your reference <b>${reference}</b> on WhatsApp and we will open your folder.</p>
+      <a class="btn" style="text-align:center" target="_blank" rel="noopener" href="${wa("Payment reference: " + reference)}">Send reference on WhatsApp</a>
+      <button class="close" onclick="$('dlg').close()">Close</button>`;
+  }
+}
+
+function showAccess(id, links, demo, ref){
+  links = links || owned[id] || [];
+  if (demo) { owned[id] = links; render(); }
+  const t = find(id);
+  $("dlgBody").innerHTML = `<h3>${demo ? "Preview: this is what students see" : "You're in"}</h3>
+    <p class="what">${t.title}. ${demo ? "" : "A copy of this link was also sent to your email."}</p>
+    <div class="access">${links.map(l => `<a href="${l.url}" target="_blank" rel="noopener">Open: ${l.title}</a>`).join("")}${ref ? `<a style="background:var(--ink)" href="${wa("Hi, I just paid for " + t.title + ". My payment reference: " + ref + ". Please send my receipt.")}" target="_blank" rel="noopener">Send my receipt on WhatsApp</a>` : ""}</div>
+    <button class="close" onclick="$('dlg').close()">Close</button>`;
+  if (!$("dlg").open) $("dlg").showModal();
+}
+
+/* restore earlier purchases on this device */
+async function restore(){
+  if (DEMO) return;
+  for (const ref of getRefs()) {
+    try {
+      const d = await (await fetch(`${CONFIG.BACKEND_URL}/api/verify?reference=${encodeURIComponent(ref)}`)).json();
+      if (d.ok) owned[d.topic_id] = d.links;
+    } catch {}
+  }
+  render();
+}
+
+render(); restore();
+</script>
+</body>
+</html>
